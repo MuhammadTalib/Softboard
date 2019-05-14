@@ -94,23 +94,15 @@ class App extends Component {
       .then(res => this.refreshList());
   };
   handleDelete = item => {
-    axios.delete(`http://localhost:8000/api/`).then(res => this.refreshList());
+    axios
+      .get(`http://localhost:8000/13/delete`)
+      .then(res => this.refreshList());
   };
   render() {
     return (
       <div>
         <button onClick={this.handleSubmit}>send</button>
-        <button
-          onClick={() =>
-            this.handleDelete({
-              id: 2,
-              name: "Talib",
-              teacher_name: "1233YBSCFS"
-            })
-          }
-        >
-          Delete
-        </button>
+        <button onClick={() => this.handleDelete()}>Delete</button>
       </div>
     );
   }

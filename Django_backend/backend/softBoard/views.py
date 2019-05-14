@@ -27,12 +27,6 @@ class SoftBoardView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# def delete(self, request, *args, **kwargs):
-#         #query = Classes.objects.get(pk=kwargs['pk'])
-#         # query.delete()
-#         print(kwargs)
-#         return HttpResponse("Deleted!")
-
 
 def objectDelete(request, object_id):
     object = get_object_or_404(Classes, pk=object_id)
