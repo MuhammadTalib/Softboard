@@ -7,5 +7,6 @@ from softBoard.views import SoftBoardView                           # add this
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', SoftBoardView.as_view())
+    path('api/', SoftBoardView.as_view()),
+    path('<int:object_id>/delete/', views.objectDelete)
 ]
