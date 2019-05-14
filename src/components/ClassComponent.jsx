@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardText, CardTitle, CardSubtitle } from "reactstrap";
-import logo from "./classimg.jpg";
+import logo from "../class_cover.jpg";
 const subnamestyle = {
   fontFamily: "Lato",
   fontStyle: "bold",
@@ -23,9 +23,12 @@ const bodystyle = {
   marginLeft: "-1px",
   height: "180px",
   width: "300px",
-  borderRadius: "0px 0px 10px 10px"
+  borderRadius: "0px 0px 10px 10px",
+
+  backgroundColor: " #ffffe6"
 };
 const cardstyle = {
+  marginLeft: "-1px",
   height: "290px",
   width: "300px",
   margin: "40px 0px -10px 30px",
@@ -45,13 +48,18 @@ class ClassComponent extends Component {
             {this.state._teacher}
           </CardSubtitle>
           <CardImg
-            style={{ borderRadius: "10px 10px 0px 0px", height: "110px" }}
+            style={{
+              borderRadius: "10px 10px 0px 0px",
+              height: "110px",
+              marginLeft: "-1px",
+              width: "300px"
+            }}
             top
             width="100%"
             src={logo}
             alt="Card image cap"
           />
-          <div className="card" style={bodystyle}>
+          <div className="card primary" style={bodystyle}>
             <CardText />
           </div>
         </Card>

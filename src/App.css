@@ -7,6 +7,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+#custom-nav {
+  box-shadow: 1px 1px 2px rgb(199, 199, 199);
+}
 
 .App-header {
   background-color: #282c34;
