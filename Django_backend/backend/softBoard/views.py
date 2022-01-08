@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from rest_framework import viewsets          # add this
-from .serializers import SoftBoardSerializer      # add this
-from .models import Classes                  # add this
+from rest_framework import viewsets
+from .serializers import SoftBoardSerializer      
+from .models import Classes
 
 from django_serializer.base_views import ListView
 from rest_framework.response import Response
@@ -9,7 +9,6 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from rest_framework import status
 from django.http import HttpResponse
-
 from django.shortcuts import render, redirect, get_object_or_404
 
 

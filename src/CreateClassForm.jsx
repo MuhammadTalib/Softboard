@@ -1,92 +1,55 @@
-import React, { Component } from "react";
-class CreateClassForm extends Component {
-  state = {};
-  fetch = () => {
-    console.log("fetch");
-    let headers = new Headers();
-
-    headers.append("Content-Type", "application/json");
-    headers.append("Accept", "application/json");
-
-    headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
-    headers.append("Access-Control-Allow-Credentials", "true");
-
-    headers.append("GET", "POST", "OPTIONS");
-
-    headers.append("Authorization");
-
-    fetch("http://localhost:8000/api/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        artist: "Talib",
-        album_title: "red",
-        genre: "country",
-        album_logo: "tall"
-      })
-    });
+import React, { useState } from "react";
+import axios from "axios";
+const CreateClassForm = props => {
+  const [name, setname] = useState("");
+  const [teacher_name, setteacher_name] = useState("");
+  const handlenameChange = e => {
+    setname(e.target.value);
   };
-  render() {
-    return (
-      <form className="form" onSubmit={this.handleSubmit}>
-        <div className="field">
-          <label className="label">Name</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              name="artist"
-              value="artist"
-              onChange={this.handleChange}
-            />
-            <input
-              className="input"
-              type="text"
-              name="fullname"
-              value={this.state.fullname}
-              onChange={this.handleChange}
-            />
-            <input
-              className="input"
-              type="text"
-              name="fullname"
-              value={this.state.fullname}
-              onChange={this.handleChange}
-            />
-            <input
-              className="input"
-              type="text"
-              name="fullname"
-              value={this.state.fullname}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
+  const handleteacher_nameChange = e => {
+    setteacher_name(e.target.value);
+  };
+  const handleSubmit = (name, teacher_name) => {
+    console.log("submit");
+    axios
+      .post("http://localhost:8000/api/", {
+        id: this.state.classes.length,
+        name: name,
+        teacher_name: teacher_name
+      })
+      .then(res => this.refreshList())
+      .catch(err => console.log(err));
+  };
 
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
-            <input
-              className="input"
-              type="email"
-              name="emailaddress"
-              value={this.state.emailaddress}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
+  return (
+    <form style={{ marginTop: "80px" }}>
+      <label className="label">Name:</label>
 
-        <div className="field">
-          <div className="control">
-            <input type="submit" value="Submit" className="button is-primary" />
-          </div>
-        </div>
-      </form>
-    );
-  }
-}
+      <input
+        className="input"
+        type="text"
+        name="name"
+        value={name}
+        onChange={handlenameChange}
+      />
+      <br />
+
+      <label className="label">Teachers Name:</label>
+      <input
+        className="input"
+        type="text"
+        name="teacher_name"
+        value={teacher_name}
+        onChange={handleteacher_nameChange}
+      />
+
+      <button
+        onClick={() => handleSubmit({ name: "Physics", teacher_name: "Umer" })}
+      >
+        Submit
+      </button>
+    </form>
+  );
+};
 
 export default CreateClassForm;

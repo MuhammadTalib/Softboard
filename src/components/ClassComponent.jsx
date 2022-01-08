@@ -47,6 +47,17 @@ class ClassComponent extends Component {
           <CardSubtitle style={subnamestyle}>
             {this.state._teacher}
           </CardSubtitle>
+          <i
+            style={{
+              position: "absolute",
+              marginLeft: "93%",
+              marginTop: "5%",
+              fontSize: "30px",
+              color: "#AFFFDD"
+            }}
+            onClick={() => this.props.objectDelete(this.props.classObject.id)}
+            class="fas fa-ellipsis-v"
+          />
           <CardImg
             style={{
               borderRadius: "10px 10px 0px 0px",

@@ -25,18 +25,12 @@ class Navbar extends Component {
             color: "#602020"
           }}
         />
-        {/* <img
-          style={{
-            height: "50px",
-            width: "55px",
-            marginTop: "5px"
-          }}
-          src="./logo.png"
-        /> */}
+
         <div
           style={{
             fontFamily: "Akronim",
-            width: "200px",
+            height: "50px",
+            width: "600px",
             fontSize: "35px",
             color: "#602020"
           }}
@@ -57,11 +51,16 @@ class Navbar extends Component {
         >
           Login
         </NavLink>
-        <i
-          className="fa fa-plus"
-          style={{ fontSize: "30px", marginRight: "40px" }}
-        />
+
+        <NavLink className="nav-item nav-link" to="/addClass">
+          <i
+            className="fa fa-plus "
+            style={{ fontSize: "30px", marginRight: "20px", color: "#602020" }}
+            onClick={this.props.handleForm}
+          />
+        </NavLink>
         <img
+          alt=""
           src={logo}
           style={{
             borderRadius: "50%",
